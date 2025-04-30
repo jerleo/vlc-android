@@ -550,6 +550,7 @@
     <string name="dump_media_db">Mediendatenbank sichern</string>
     <string name="dump_app_db">App-Datenbank sichern</string>
     <string name="dump_media_db_summary">Datenbank in den internen Speicherstammordner kopieren</string>
+    <string name="import_media_db_summary">Datenbank aus internem Speicherstammordner kopieren</string>
     <string name="clear_media_db">Mediendatenbank leeren</string>
     <string name="clear_media_database_summary">Löscht die Datenbank zum Neustart</string>
     <string name="clear_app_data">App-Daten löschen</string>
@@ -906,6 +907,9 @@
     <string name="persistent_incognito_mode_summary">Den Inkognito-Modus aktiviert lassen, auch wenn die App neu gestartet wird</string>
     <string name="display_in_list">Als Liste anzeigen</string>
     <string name="display_in_grid">Als Gitter anzeigen</string>
+    <string name="import_media_db">Mediendatenbank importieren</string>
+    <string name="import_db_success">Datenbank vom internen Speicherstammordner importiert</string>
+    <string name="import_db_failure">Datenbank konnte nicht importiert werden</string>
     <string name="dump_db_succes">Die Datenbank wurde im internen Speicherstammordner abgelegt</string>
     <string name="dump_db_failure">Datenbank konnte nicht gesichert werden</string>
     <string name="send_crash_title">VLC-Absturzbericht senden</string>

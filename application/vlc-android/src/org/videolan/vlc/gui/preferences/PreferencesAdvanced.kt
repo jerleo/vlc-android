@@ -277,6 +277,26 @@ class PreferencesAdvanced : BasePreferenceFragment(), SharedPreferences.OnShared
                 android.os.Process.killProcess(android.os.Process.myPid())
                 return true
             }
+            "import_media_db" -> {
+                if (Medialibrary.getInstance().isWorking)
+                    UiTools.snacker(requireActivity(), getString(R.string.settings_ml_block_scan))
+                else {
+                    val src = File(AndroidDevices.EXTERNAL_PUBLIC_DIRECTORY + Medialibrary.VLC_MEDIA_DB_NAME)
+                    lifecycleScope.launch {
+                        val copied = withContext(Dispatchers.IO) {
+                            val db = File(requireContext().getDir("db", Context.MODE_PRIVATE).toString() + Medialibrary.VLC_MEDIA_DB_NAME)
+                            FileUtils.copyFile(src, db)
+                        }
+                        if (copied)
+                            UiTools.snackerConfirm(requireActivity(), getString(R.string.import_db_success), confirmMessage = R.string.share, overAudioPlayer = false) {
+                                requireActivity().share(src)
+                            } else {
+                            Toast.makeText(context, getString(R.string.import_db_failure), Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+                return true
+            }
             "dump_media_db" -> {
                 if (Medialibrary.getInstance().isWorking)
                     UiTools.snacker(requireActivity(), getString(R.string.settings_ml_block_scan))
